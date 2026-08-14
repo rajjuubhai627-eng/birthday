@@ -1254,7 +1254,7 @@
                 
                 <!-- Hero Avatar Frame -->
                 <div class="hero-avatar-ring">
-                    <img src="images/Snapchat-1215451422.jpg" alt="Maniksha" class="hero-avatar-img" onerror="this.parentElement.style.display='none'">
+                    <img src="Snapchat-1215451422.jpg" alt="Maniksha" class="hero-avatar-img" onerror="handleImgError(this)">
                 </div>
 
                 <div class="date-chip">📅 15th August • 19th Birthday Special Celebration ✨</div>
@@ -1344,9 +1344,9 @@
             <div class="carousel-3d-stage" id="carouselStage">
                 <div class="carousel-3d-rotator" id="carouselRotator">
                     <!-- Card 1 -->
-                    <div class="carousel-3d-card" style="transform: rotateY(0deg) translateZ(280px);" onclick="openPhotoViewer('images/IMG_20260726_224810_068.jpg', '✨ Birthday Star - Maniksha', 'May your day be filled with limitless joy, beauty, and smiles!')">
+                    <div class="carousel-3d-card" style="transform: rotateY(0deg) translateZ(280px);" onclick="openPhotoViewer('IMG_20260726_224810_068.jpg', '✨ Birthday Star - Maniksha', 'May your day be filled with limitless joy, beauty, and smiles!')">
                         <div class="carousel-card-img-wrap">
-                            <img src="images/IMG_20260726_224810_068.jpg" alt="Maniksha Photo 1" class="carousel-card-img">
+                            <img src="IMG_20260726_224810_068.jpg" alt="Maniksha Photo 1" class="carousel-card-img" onerror="handleImgError(this)">
                         </div>
                         <div class="carousel-card-info">
                             <h4>✨ Queen of the Day</h4>
@@ -1356,9 +1356,9 @@
                     </div>
 
                     <!-- Card 2 -->
-                    <div class="carousel-3d-card" style="transform: rotateY(72deg) translateZ(280px);" onclick="openPhotoViewer('images/Snapchat-1040089792.jpg', '💖 Million Dollar Smile', 'A smile that lights up every room and brings warmth to everyone!')">
+                    <div class="carousel-3d-card" style="transform: rotateY(72deg) translateZ(280px);" onclick="openPhotoViewer('Snapchat-1040089792.jpg', '💖 Million Dollar Smile', 'A smile that lights up every room and brings warmth to everyone!')">
                         <div class="carousel-card-img-wrap">
-                            <img src="images/Snapchat-1040089792.jpg" alt="Maniksha Photo 2" class="carousel-card-img">
+                            <img src="Snapchat-1040089792.jpg" alt="Maniksha Photo 2" class="carousel-card-img" onerror="handleImgError(this)">
                         </div>
                         <div class="carousel-card-info">
                             <h4>💖 Million Dollar Smile</h4>
@@ -1368,9 +1368,9 @@
                     </div>
 
                     <!-- Card 3 -->
-                    <div class="carousel-3d-card" style="transform: rotateY(144deg) translateZ(280px);" onclick="openPhotoViewer('images/Snapchat-1215451422.jpg', '🌸 Sweet & Charming Moments', 'Cherishing our wonderful college friendship and memories!')">
+                    <div class="carousel-3d-card" style="transform: rotateY(144deg) translateZ(280px);" onclick="openPhotoViewer('Snapchat-1215451422.jpg', '🌸 Sweet & Charming Moments', 'Cherishing our wonderful college friendship and memories!')">
                         <div class="carousel-card-img-wrap">
-                            <img src="images/Snapchat-1215451422.jpg" alt="Maniksha Photo 3" class="carousel-card-img">
+                            <img src="Snapchat-1215451422.jpg" alt="Maniksha Photo 3" class="carousel-card-img" onerror="handleImgError(this)">
                         </div>
                         <div class="carousel-card-info">
                             <h4>🌸 Sweet Moments</h4>
@@ -1380,9 +1380,9 @@
                     </div>
 
                     <!-- Card 4 -->
-                    <div class="carousel-3d-card" style="transform: rotateY(216deg) translateZ(280px);" onclick="openPhotoViewer('images/Snapchat-1416421050.jpg', '🌟 Best Friend Vibes', 'Grateful for all the fun chats, laughter, and unbreakable bond!')">
+                    <div class="carousel-3d-card" style="transform: rotateY(216deg) translateZ(280px);" onclick="openPhotoViewer('Snapchat-1416421050.jpg', '🌟 Best Friend Vibes', 'Grateful for all the fun chats, laughter, and unbreakable bond!')">
                         <div class="carousel-card-img-wrap">
-                            <img src="images/Snapchat-1416421050.jpg" alt="Maniksha Photo 4" class="carousel-card-img">
+                            <img src="Snapchat-1416421050.jpg" alt="Maniksha Photo 4" class="carousel-card-img" onerror="handleImgError(this)">
                         </div>
                         <div class="carousel-card-info">
                             <h4>🌟 Best Friend Vibes</h4>
@@ -1392,9 +1392,9 @@
                     </div>
 
                     <!-- Card 5 -->
-                    <div class="carousel-3d-card" style="transform: rotateY(288deg) translateZ(280px);" onclick="openPhotoViewer('images/Snapchat-685139547.jpg', '🚀 Shining Bright & Future Star', 'Here is to achieving all your dreams and flying high in life!')">
+                    <div class="carousel-3d-card" style="transform: rotateY(288deg) translateZ(280px);" onclick="openPhotoViewer('Snapchat-685139547.jpg', '🚀 Shining Bright & Future Star', 'Here is to achieving all your dreams and flying high in life!')">
                         <div class="carousel-card-img-wrap">
-                            <img src="images/Snapchat-685139547.jpg" alt="Maniksha Photo 5" class="carousel-card-img">
+                            <img src="Snapchat-685139547.jpg" alt="Maniksha Photo 5" class="carousel-card-img" onerror="handleImgError(this)">
                         </div>
                         <div class="carousel-card-info">
                             <h4>🚀 Dream Big</h4>
@@ -2129,6 +2129,22 @@
             `;
         }
 
+        function handleImgError(el) {
+            if (!el || el.dataset.fallbackTried) {
+                el.style.display = 'none';
+                return;
+            }
+            el.dataset.fallbackTried = "true";
+            const src = el.getAttribute('src') || el.src;
+            if (src.includes('images/')) {
+                el.src = src.replace('images/', '');
+            } else {
+                const parts = src.split('/');
+                const filename = parts.pop();
+                el.src = (parts.length > 0 && parts[0] !== '') ? parts.join('/') + '/images/' + filename : 'images/' + filename;
+            }
+        }
+
         function openPhotoViewer(imgSrc, title, desc) {
             playPopSound();
             spawnConfettiCannon();
@@ -2137,9 +2153,19 @@
             const lbTitle = document.getElementById('lightboxTitle');
             const lbDesc = document.getElementById('lightboxDesc');
 
+            delete lbImg.dataset.fallbackTried;
             lbImg.src = imgSrc;
             lbImg.onerror = () => {
-                lbImg.style.display = 'none';
+                if (!lbImg.dataset.fallbackTried) {
+                    lbImg.dataset.fallbackTried = "true";
+                    if (imgSrc.includes('images/')) {
+                        lbImg.src = imgSrc.replace('images/', '');
+                    } else {
+                        lbImg.src = 'images/' + imgSrc;
+                    }
+                } else {
+                    lbImg.style.display = 'none';
+                }
             };
             lbImg.onload = () => {
                 lbImg.style.display = 'block';
